@@ -62,7 +62,8 @@
 
             if ($package instanceof rex_null_package) {
                 try {
-                    rex_install::downloadAddon($sPackage, $sVersion);
+                    $rex_install = new rex_install();
+                    $rex_install->downloadAddon($sPackage, $sVersion);
                     $aSuccess[] = $oAddon->i18n('addon_downloaded', $sPackage);
                     $package = rex_package::get($sPackage);
                 } catch (Exception $e) {
