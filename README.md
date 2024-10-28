@@ -20,3 +20,21 @@ Es muss immer mindestens der Key des Addons sowie optional die gewünschte Versi
     "cronjob": ""
 }
 ```
+
+
+### Team
+
+**Friends Of REDAXO**  
+http://www.redaxo.org  
+https://github.com/FriendsOfREDAXO
+
+**Projekt-Lead**  
+[Alexander Walther](https://github.com/alxndr-w)
+
+### Danke an
+
+- [Daniel Steffen](https://github.com/novinet-git)
+
+### Lizenz
+
+[MIT-Lizenz](https://github.com/FriendsOfREDAXO/pdfout/blob/master/LICENSE.md)
