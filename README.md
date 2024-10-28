@@ -11,8 +11,34 @@ Es muss immer mindestens der Key des Addons sowie optional die gewünschte Versi
 
 ```php
 {
-	"yrewrite": "2.6",
-    "cronjob": ""
+    "phpmailer": "",
+    "yform": "3.4",
+    "yform_spam_protection": "",
+    "yform_usability": "",
+    "yrewrite": "2.6",
+    "cronjob": "2.1.0",
+    "emailobfuscator": "3.0.0",
+    "mform": "5.3.1",
+    "mblock": "3.1.0",
+    "usage_check": "",
+    "developer": "",
+    "theme": "",
+    "be_tools": "",
+    "yrewrite_domain_settings": "",
+    "nv_betheme": "",
+    "nv_modulesettings": "",
+    "seocheckup": "",
+    "url": "",
+    "quick_navigation": "",
+    "adminer": "",
+    "be_explorer": "",
+    "bloecks": "",
+    "cke5": "",
+    "maintenance": "",
+    "minibar": "",
+    "uploader": "",
+    "nv_rexhelper": "",
+    "navbuilder":""
 }
 ```
 
