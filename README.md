@@ -1,11 +1,6 @@
-# nvDefaultAddons-AddOn für REDAXO 5
+# Default Addons für REDAXO 5
 
-Redaxo 5 Addon zum Installieren von häufig benötigten Addons
-
-## Features
-
-- Installiert und aktiviert in einem Durchgang alle gewünschten Addons
-
+Redaxo 5-Addon zum Installieren von häufig benötigten Addons "in einem Rutsch".
 
 ## Konfiguration
 
