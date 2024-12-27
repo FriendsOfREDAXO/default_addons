@@ -9,7 +9,9 @@ Es muss immer mindestens der Key des Addons sowie optional die gewünschte Versi
 
 ## Beispielkonfiguration
 
-```php
+### nv Original-Konfiguration
+
+```json
 {
     "phpmailer": "",
     "yform": "3.4",
@@ -39,6 +41,29 @@ Es muss immer mindestens der Key des Addons sowie optional die gewünschte Versi
     "uploader": "",
     "nv_rexhelper": "",
     "navbuilder":""
+}
+```
+
+### @alxndr-w Empfehlungen
+
+```JSON
+{
+  "accessdenied": "",
+  "adminer": "",
+  "auto_delete": "",
+  "bloecks": "",
+  "developer": "",
+  "maintenance": "",
+  "neues": "6.0.0",
+  "project_manager": "",
+  "quick_navigation": "",
+  "url": "",
+  "wenns_sein_muss": "",
+  "yform": "4.2.1",
+  "yform_field": "",
+  "yrewrite": "",
+  "yrewrite_metainfo": "",
+  "zip_install": ""
 }
 ```
 
