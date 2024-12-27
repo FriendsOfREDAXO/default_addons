@@ -9,7 +9,9 @@ Es muss immer mindestens der Key des Addons sowie optional die gewünschte Versi
 
 ## Beispielkonfiguration
 
-```php
+### nv Original-Konfiguration
+
+```json
 {
     "phpmailer": "",
     "yform": "3.4",
@@ -42,12 +44,35 @@ Es muss immer mindestens der Key des Addons sowie optional die gewünschte Versi
 }
 ```
 
+### @alxndr-w Empfehlungen
+
+```JSON
+{
+  "accessdenied": "",
+  "adminer": "",
+  "auto_delete": "",
+  "bloecks": "",
+  "developer": "",
+  "maintenance": "",
+  "neues": "6.0.0",
+  "project_manager": "",
+  "quick_navigation": "",
+  "url": "",
+  "wenns_sein_muss": "",
+  "yform": "4.2.1",
+  "yform_field": "",
+  "yform_spam_protection": "",
+  "yrewrite": "",
+  "yrewrite_metainfo": "",
+  "zip_install": ""
+}
+```
 
 ### Team
 
 **Friends Of REDAXO**  
-http://www.redaxo.org  
-https://github.com/FriendsOfREDAXO
+<http://www.redaxo.org>  
+<https://github.com/FriendsOfREDAXO>
 
 **Projekt-Lead**  
 [Alexander Walther](https://github.com/alxndr-w)

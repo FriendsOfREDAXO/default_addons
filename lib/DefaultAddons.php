@@ -1,7 +1,28 @@
-<?php class nvDefaultAddons
+<?php
+
+namespace FriendsOfRedaxo\DefaultAddons;
+
+use rex_addon;
+use rex_install_packages;
+use rex_package;
+use rex_package_manager;
+use rex_null_package;
+use rex_install;
+use rex_functional_exception;
+use rex_logger;
+use rex_view;
+use rex_install_webservice;
+use rex_install_archive;
+use rex_path;
+use rex_dir;
+use rex_yrewrite;
+
+class DefaultAddons
 {
 
-    public static $addon_name = 'nv_defaultaddons';
+    private $addon;
+
+    public static $addon_name = 'default_addons';
 
     public function __construct()
     {
@@ -20,7 +41,7 @@
             $sContent = file_get_contents($sFile);
             $aTmp = (json_decode($sContent, true));
         }
-        $aTmp = json_decode($oAddon->getConfig("addonlist"),true);
+        $aTmp = json_decode($oAddon->getConfig("addonlist"), true);
 
         foreach ($aTmp as $sKey => $sVersion) {
             if ($sVersion == "") {
@@ -66,7 +87,7 @@
                     $rex_install->downloadAddon($sPackage, $sVersion);
                     $aSuccess[] = $oAddon->i18n('addon_downloaded', $sPackage);
                     $package = rex_package::get($sPackage);
-                } catch (Exception $e) {
+                } catch (\Exception $e) {
                     rex_logger::logException($e);
                     $aError[] = $oAddon->i18n('addon_exists', $sPackage);
                 }
@@ -115,6 +136,7 @@
     {
         $addon = rex_addon::get(self::$addon_name);
 
+        /** @var rex_addon_instance $addon */
         // in some cases rex_addon has the old package.yml in cache. But we need our new merged package.yml
         $addon->loadProperties();
 
@@ -220,29 +242,7 @@
                 }
             }
         }
-        /*
-        // step 4/6: import database
-        if (count($addon->getProperty('setup')['dbimport']) > 0 && count($errors) == 0) {
-            foreach ($addon->getProperty('setup')['dbimport'] as $import) {
-                $file = rex_backup::getDir() . '/' . $import;
-                $success = rex_backup::importDb($file);
-                if (!$success['state']) {
-                    $errors[] = $addon->i18n('package_failed_to_import', $import);
-                }
-            }
-        }
 
-        // step 5/6: import files
-        if (count($addon->getProperty('setup')['fileimport']) > 0 && count($errors) == 0) {
-            foreach ($addon->getProperty('setup')['fileimport'] as $import) {
-                $file = rex_backup::getDir() . '/' . $import;
-                $success = rex_backup::importFiles($file);
-                if (!$success['state']) {
-                    $errors[] = $addon->i18n('package_failed_to_import', $import);
-                }
-            }
-        }
-*/
         // step 6/6: make yrewrite copy its htaccess file
         if (class_exists('rex_yrewrite')) {
             rex_yrewrite::copyHtaccess();
