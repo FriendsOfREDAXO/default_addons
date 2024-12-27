@@ -4,14 +4,16 @@ author: "Friends Of REDAXO"
 supportpage: "https://github.com/FriendsOfREDAXO/default_addons"
 page:
     title: translate:default_addons_title
-    icon: rex-icon fa-arrows-spin
+    icon: rex-icon fa-list-check
     perm: "default_addons[]"
-    pjax: true
+    pjax: false
     hidden: true
 
 pages:
     install/packages/batch:
         title: translate:default_addons_title
+        pjax: false
+        icon: rex-icon fa-list-check
 requires:
     redaxo: ^5.18.0
 
