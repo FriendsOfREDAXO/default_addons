@@ -4,9 +4,10 @@ default_addons_settings = Gewählte Addons
 default_addons_install = Installation
 default_addons_install_heading = Installation
 default_addons_install_description = Bei der Installation werden gewünschte Standardaddons installiert
-default_addons_install_button = Standardaddons installieren
+default_addons_install_button = Installation starten
 
 default_addons_confirm_setup = Fortfahren?
+default_addons_config_saved = Einstellungen wurden gespeichert
 
 default_addons_error_no_addons = Es wurden keine Standardaddons definiert.
 
