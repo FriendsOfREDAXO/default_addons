@@ -1,16 +1,19 @@
 package: default_addons
-version: 1.3.1
-author: 'Friends Of REDAXO'
-supportpage: 'https://github.com/FriendsOfREDAXO/nv_defaultaddons'
+version: 2.0.0-dev-2024-12-27
+author: "Friends Of REDAXO"
+supportpage: "https://github.com/FriendsOfREDAXO/default_addons"
 page:
-    title: Default Addons
-    icon: fa-solid fa-arrows-spin
-    perm: 'nv_defaultaddons[]'
+    title: translate:default_addons_title
+    icon: rex-icon fa-arrows-spin
+    perm: "default_addons[]"
     pjax: true
-    subpages:
-        settings: { title: translate:settings }
-        install: { title: 'translate:install' }
-        info: { title: translate:info }
-requires:
-    redaxo: ^5.17.0
+    hidden: true
 
+pages:
+    install/packages/batch:
+        title: translate:default_addons_title
+requires:
+    redaxo: ^5.18.0
+
+default_config:
+    default_addons_addonlist: "{}"

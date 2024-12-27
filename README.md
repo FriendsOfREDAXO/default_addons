@@ -42,12 +42,11 @@ Es muss immer mindestens der Key des Addons sowie optional die gewünschte Versi
 }
 ```
 
-
 ### Team
 
 **Friends Of REDAXO**  
-http://www.redaxo.org  
-https://github.com/FriendsOfREDAXO
+<http://www.redaxo.org>  
+<https://github.com/FriendsOfREDAXO>
 
 **Projekt-Lead**  
 [Alexander Walther](https://github.com/alxndr-w)

@@ -1,5 +1,3 @@
-<?php $addon = rex_addon::get("nv_defaultaddons");
+<?php
 
-if (file_exists($addon->getAssetsPath("css/style.css"))) {
-    rex_view::addCssFile($addon->getAssetsUrl("css/style.css"));
-}
+$addon = rex_addon::get("default_addons");
