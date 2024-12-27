@@ -1,4 +1,5 @@
-default_addons_title = Default Addons
+default_addons_title = Batch-Installation
+default_addons_settings = Gewählte Addons
 
 default_addons_install = Installation
 default_addons_install_heading = Installation
