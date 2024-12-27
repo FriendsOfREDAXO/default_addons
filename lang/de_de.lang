@@ -28,5 +28,5 @@ default_addons_addon_failed_to_install  = Fehler beim Installieren des Addons <c
 default_addons_addon_failed_to_activate = Fehler beim Aktivieren des Addons <code>"{0}"</code>!
 default_addons_addon_failed_to_import   = Fehler beim Importieren des Addons <code>"{0}"</code>!
 
-default_addons_installation_error         = nvDefaultAddons konnte die gewünschten Addons nicht (alle) installieren
-default_addons_installation_success       = nvDefaultAddons hat erfolgreich Addons installiert
+default_addons_installation_error         = "Default Addons" konnte die gewünschten Addons nicht (alle) installieren
+default_addons_installation_success       = "Default Addons" hat erfolgreich Addons installiert
