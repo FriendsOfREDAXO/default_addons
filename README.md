@@ -61,6 +61,7 @@ Es muss immer mindestens der Key des Addons sowie optional die gewünschte Versi
   "wenns_sein_muss": "",
   "yform": "4.2.1",
   "yform_field": "",
+  "yform_spam_protection": "",
   "yrewrite": "",
   "yrewrite_metainfo": "",
   "zip_install": ""
