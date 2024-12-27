@@ -18,4 +18,4 @@ requires:
     redaxo: ^5.18.0
 
 default_config:
-    default_addons_addonlist: "{}"
+    addonlist: "{}"
