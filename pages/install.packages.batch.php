@@ -3,18 +3,41 @@
 use FriendsOfRedaxo\DefaultAddons\DefaultAddons;
 
 $DefaultAddons = new DefaultAddons;
+$installableAddons = DefaultAddons::getProjectAddons();
 
 
-$form = rex_config_form::factory('default_addons');
+if (rex_post('install', 'boolean')) {
+
+    $aResult = DefaultAddons::installAddons($installableAddons);
+    $aError = $aResult["error"];
+    $aSuccess = $aResult["success"];
 
 
-$field = $form->addTextAreaField('addonlist', null, ["data-addon-json" => true, "class" => "form-control _codemirror", "rows" => "12"]);
-$field->setLabel('');
+    // show result messages
+    if (count($aError) > 0) {
+        echo rex_view::error("<p>" . $this->i18n('installation_error') . "</p><ul><li>" . implode("</li><li>", $aError) . "</li></ul>");
+    }
+    if (!count($aError) or count($aSuccess) > 0) {
+        echo rex_view::success("<p>" . $this->i18n('installation_success') . "</p><ul><li>" . implode("</li><li>", $aSuccess) . "</li></ul>");
+    }
+}
+
+// save config
+if (rex_post('addonlist', 'string')) {
+    rex_config::set('default_addons', 'addonlist', rex_post('addonlist', 'string'));
+    echo rex_view::success($this->i18n('default_addons_config_saved'));
+}
+
+$form = '<form action="' . rex_url::currentBackendPage() . '" method="post">';
+$form .= '<label for="default_addons_addonlist">' . $this->i18n('default_addons_settings') . '</label>';
+$form .= '<textarea name="addonlist" data-addon-json="true" class="form-control _codemirror" rows="12">'. rex_config::get('default_addons', 'addonlist').'</textarea>';
+$form .= '<button class="btn btn-save" type="submit" name="send" value="1">' . $this->i18n('save') . '</button>';
+$form .= '</form>';
 
 $fragment = new rex_fragment();
 $fragment->setVar('class', 'edit', false);
 $fragment->setVar('title', $this->i18n('default_addons_settings'), false);
-$fragment->setVar('body', $form->get(), false);
+$fragment->setVar('body', $form, false);
 
 ?>
 <div class="row">
@@ -24,33 +47,14 @@ $fragment->setVar('body', $form->get(), false);
         </div>
 
         <?php
-        
-        $installableAddons = DefaultAddons::getProjectAddons();
-        
-        if (rex_post('install', 'boolean')) {
-        
-            $aResult = DefaultAddons::installAddons($installableAddons);
-            $aError = $aResult["error"];
-            $aSuccess = $aResult["success"];
-        
-        
-            // show result messages
-            if (count($aError) > 0) {
-                echo rex_view::error("<p>" . $this->i18n('installation_error') . "</p><ul><li>" . implode("</li><li>", $aError) . "</li></ul>");
-            }
-            if (!count($aError) or count($aSuccess) > 0) {
-                echo rex_view::success("<p>" . $this->i18n('installation_success') . "</p><ul><li>" . implode("</li><li>", $aSuccess) . "</li></ul>");
-            }
-        }
-        
-        
+            
         /* setup info */
         if (!count($installableAddons)) {
             echo rex_view::error("<p>" . $this->i18n('error_no_addons') . "</p>");
         }
         $content = '<p>' . $this->i18n('install_description') . '</p>';
         if (count($installableAddons)) {
-            $content .= '<p><b>Folgende Addons sollen installiert werden:</b></p><ul>';
+            $content .= '<p><b>Folgende Addons werden installiert:</b></p><ul>';
         
             $errors = array();
         
@@ -65,8 +69,11 @@ $fragment->setVar('body', $form->get(), false);
             $content .= '</ul><br>';
         
         
-            $content .= '<p><button class="btn btn-send" type="submit" name="install" value="1"><i class="rex-icon fa-download"></i> ' . $this->i18n('install_button') . '</button></p>';
+            $content .= '<p><button class="btn btn-send" type="submit" name="install" value="1"><i class="rex-icon fa-play"></i> ' . $this->i18n('install_button') . '</button></p>';
         }
+        // PHP Skriptlaufzeit ausgeben
+        $content .= '<p>Beachte die <code>max_execution_time</code> von ' . ini_get('max_execution_time') . ' Sekunden</p>';
+
         $fragment = new rex_fragment();
         $fragment->setVar('title', $this->i18n('install_heading'), false);
         $fragment->setVar('body', $content, false);
