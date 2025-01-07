@@ -94,7 +94,7 @@ class DefaultAddons
             }
 
             
-            if (!$package->isInstalled()) {
+            if ($package instanceof rex_package && !$package->isInstalled()) {
 
                 try {
                     $manager = rex_package_manager::factory($package);
@@ -116,7 +116,7 @@ class DefaultAddons
                     $aError[] = $oAddon->i18n('addon_failed_to_install', $sPackage);
                 }
             }
-            if ($package->isInstalled() && !$package->isAvailable()) {
+            if ($package instanceof rex_package && $package->isInstalled() && !$package->isAvailable()) {
                 try {
                     $ret = $manager->activate();
                     $aSuccess[] = $oAddon->i18n('addon_activated', $sPackage);
